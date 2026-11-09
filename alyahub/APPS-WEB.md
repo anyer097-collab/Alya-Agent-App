@@ -42,6 +42,7 @@ if (r.ok) console.log(r.salida);
 | `Alya.bateria()` | `{ok, nivel, cargando}` | — |
 | `Alya.ubicacion()` | `{ok, lat, lon, precision}` | Última posición conocida |
 | `Alya.permiso(nombre)` · `Alya.pedirPermiso(nombre)` | `{ok, concedido}` | camara, microfono, ubicacion, notificaciones… |
+| `Alya.widget(texto)` | `{ok, texto}` | Cambia la línea que muestra su widget en el escritorio |
 | `Alya.preguntar(texto)` | `{ok}` | Abre el chat de Alya con ese texto |
 | `Alya.cerrar()` | `{ok}` | Cierra la app |
 
@@ -51,6 +52,34 @@ También está expuesto como `alya` y `AlyaNativo`, por si algún día hace falt
 conviene comprobarlo y caer a `localStorage`, como hace el calendario.
 
 ---
+
+## Widget en la pantalla de inicio
+
+Cualquier app web se puede fijar como widget: **pulsación larga sobre la app → 📌 Widget**.
+Android pide confirmación y aparece una tarjeta con el icono, el nombre y **una línea de
+texto que la propia app controla**:
+
+```js
+await Alya.widget("3 tareas para hoy");
+```
+
+Al tocar el widget se abre Alya directamente en esa app. El texto se guarda en `app.json`
+y sobrevive al reinicio; si nunca se llama, se muestra la descripción de la app o
+«Toca para abrir».
+
+> Un widget de Android no puede contener un WebView. Esto es su tarjeta, no la app dentro
+> de la pantalla de inicio: la app se abre al tocarla.
+
+## Nombre, icono y borrado
+
+**Pulsación larga sobre cualquier app del Hub** abre su ficha:
+
+- **Nombre** — el que se ve en la rejilla y en el widget.
+- **Icono** — un emoji de la lista, o una **imagen de tu galería** (se recorta cuadrada y se
+  guarda a 256 px dentro de la carpeta de la app, así viaja con ella).
+- **🩺 Comprobar** — diagnóstico: si falta el `index.html`, si está vacío o si no parece
+  HTML. Si encuentra otro `.html` en la carpeta, lo renombra y la app vuelve a cargar.
+- **🗑️ Borrar** — pide confirmación y elimina la carpeta entera.
 
 ## Permisos reales
 
@@ -111,17 +140,35 @@ fuentes externas (no hay red garantizada y el WebView carga desde archivo).
 
 ---
 
-## Que la cree Alya sola
+## Crear una app desde el IDE (la forma recomendada)
 
-En el chat: *«créame una app para Alya Hub: un cronómetro con vueltas»*. Alya usa la
-herramienta `crear_app` con el HTML completo y la app queda instalada. La plantilla que
-se le pasa está en **Alya Hub → Crear**, y el catálogo de funciones del puente está en
-el prompt del motor (`assets/prompts/alya_core_v4.txt`), así que siempre sabe qué puede
-usar.
+**Alya Hub → Crear** ya no abre el chat: abre el **Alya IDE en modo app**, con el encargo
+escrito para el asistente del IDE (que es quien sabe de código y tiene editor, vista previa
+y consola). El flujo es:
+
+1. El IDE arranca en lenguaje `html`, con el encargo puesto y el asistente abierto.
+2. El asistente escribe la app (un solo archivo, sin CDN, con `window.Alya`).
+3. La revisas y la ejecutas en la pestaña **Web Live**.
+4. **🧩 A la tienda** (o menú de herramientas → *Instalar editor como app del Hub*): pones
+   nombre y emoji, y la app aparece en **Mis apps**.
+
+Desde el chat también existe la herramienta `crear_app`, con el mismo resultado: escribe el
+archivo de verdad en `/sdcard/AlyaHub/apps/`.
 
 > Regla que nos costó aprender: antes Alya contestaba con un manifiesto JSON y un HTML a
-> medias en el chat y no guardaba nada. Ahora `crear_app` escribe el archivo de verdad:
-> si no aparece en Mis apps, no se hizo.
+> medias en el chat y no guardaba nada. Si no aparece en Mis apps, no se hizo.
+
+## Si una app se ve en blanco
+
+La ventana ahora **dice qué falló** (código de error, descripción y la ruta del archivo) y
+ofrece **Reintentar** y **🩺 Comprobar**. Las causas típicas:
+
+| Síntoma | Causa | Arreglo |
+|---|---|---|
+| Todo negro, sin mensaje | `index.html` vacío o a medias | Volver a generarla en el IDE |
+| `net::ERR_FILE_NOT_FOUND` | Falta el archivo o el nombre está mal | 🩺 Comprobar renombra otro `.html` si existe |
+| Carga pero no hay datos | `fetch("datos.json")` bloqueado | Ya está permitido por el puente; usar `Alya.leer` |
+| Se ve texto suelto | Se guardó un JSON con la página dentro | Regenerar: el HTML debe empezar por `<!DOCTYPE html>` |
 
 ---
 
