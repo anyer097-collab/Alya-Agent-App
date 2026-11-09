@@ -1,12 +1,12 @@
 {
-  "_comentario": "Estado del canal de actualizaciones. Se actualiza a mano (o con el script de publicación) cada vez que se sube un APK nuevo. La app compara versionCode con el suyo.",
+  "_comentario": "Estado del canal de actualizaciones. Se actualiza con alyahub/publicar.sh en cada APK nuevo. La app compara versionCode con el suyo.",
   "canal": 1,
   "versionName": "2.9.9",
   "versionCode": 86,
   "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v1.apk",
   "apk_estable": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "tamano": 0,
-  "sha256": "",
+  "tamano": 35577302,
+  "sha256": "1f61d6c8ea0915ae1f61e2a0f2ac1e285dcaefffe133224a069c79ea17610bab",
   "fecha": "2026-10-28",
-  "notas": "Alya Store con scripts y temas, asistente para crear apps, y actualizaciones desde la propia app."
+  "notas": "Alya Store: scripts instalables, temas y actualizaciones desde la propia app. Asistente para crear apps."
 }
