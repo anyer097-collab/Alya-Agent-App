@@ -1,0 +1,125 @@
+{
+  "_comentario": "Catálogo de Alya Store. La app lo lee de aquí (raw.githubusercontent). Para publicar algo nuevo: subir el archivo a alyahub/scripts/ y añadir su ficha a este archivo. No hace falta recompilar la app.",
+  "version": 1,
+  "actualizado": "2026-10-28",
+  "articulos": [
+    {
+      "id": "info-sistema",
+      "nombre": "Estado del teléfono",
+      "descripcion": "Memoria libre, temperatura, batería y espacio en disco de un vistazo.",
+      "categoria": "Sistema",
+      "tipo": "script",
+      "emoji": "📊",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/info-sistema.sh",
+      "comando": "info-sistema",
+      "permisos": [
+        "almacenamiento",
+        "terminal"
+      ],
+      "color": "0xFF8BE9FD"
+    },
+    {
+      "id": "estado-bateria",
+      "nombre": "Salud de la batería",
+      "descripcion": "Nivel, temperatura y qué apps están gastando CPU.",
+      "categoria": "Sistema",
+      "tipo": "script",
+      "emoji": "🔋",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/estado-bateria.sh",
+      "comando": "estado-bateria",
+      "permisos": [
+        "terminal"
+      ],
+      "color": "0xFF50FA7B"
+    },
+    {
+      "id": "limpiar-descargas",
+      "nombre": "Limpiador de descargas",
+      "descripcion": "Borra APK y temporales viejos de Download sin tocar tus archivos. Acepta días como argumento.",
+      "categoria": "Utilidades",
+      "tipo": "script",
+      "emoji": "🧹",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/limpiar-descargas.sh",
+      "comando": "limpiar-descargas",
+      "permisos": [
+        "almacenamiento",
+        "terminal"
+      ],
+      "color": "0xFFFFB86C"
+    },
+    {
+      "id": "ordenar-fotos",
+      "nombre": "Ordenar fotos",
+      "descripcion": "Mueve las fotos de DCIM a Pictures/Ordenadas por año y mes.",
+      "categoria": "Utilidades",
+      "tipo": "script",
+      "emoji": "📸",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/ordenar-fotos.sh",
+      "comando": "ordenar-fotos",
+      "permisos": [
+        "almacenamiento",
+        "terminal"
+      ],
+      "color": "0xFFFF79C6"
+    },
+    {
+      "id": "ordenar-musica",
+      "nombre": "Ordenar música",
+      "descripcion": "Limpia los nombres de las canciones que descarga Alya.",
+      "categoria": "Multimedia",
+      "tipo": "script",
+      "emoji": "🎵",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/ordenar-musica.sh",
+      "comando": "ordenar-musica",
+      "permisos": [
+        "almacenamiento",
+        "terminal"
+      ],
+      "color": "0xFFBD93F9"
+    },
+    {
+      "id": "clave",
+      "nombre": "Generador de claves",
+      "descripcion": "Contraseñas fuertes de la longitud que pidas, sin internet. Uso: clave 24",
+      "categoria": "Utilidades",
+      "tipo": "script",
+      "emoji": "🔐",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/clave.sh",
+      "comando": "clave",
+      "permisos": [
+        "terminal"
+      ],
+      "color": "0xFFF1FA8C"
+    },
+    {
+      "id": "web-a-markdown",
+      "nombre": "Página a Markdown",
+      "descripcion": "Guarda cualquier web en Markdown para leerla sin conexión. Uso: web-a-markdown <url>",
+      "categoria": "Utilidades",
+      "tipo": "script",
+      "emoji": "🌐",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/scripts/web-a-markdown.sh",
+      "comando": "web-a-markdown",
+      "permisos": [
+        "red",
+        "almacenamiento",
+        "terminal"
+      ],
+      "color": "0xFF8BE9FD"
+    }
+  ]
+}
