@@ -1,12 +1,12 @@
 {
   "_comentario": "Estado del canal de actualizaciones. Se actualiza con alyahub/publicar.sh en cada APK nuevo. La app compara versionCode con el suyo.",
-  "canal": 2,
-  "versionName": "3.0.0",
-  "versionCode": 87,
-  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v2.apk",
+  "canal": 3,
+  "versionName": "3.1.0",
+  "versionCode": 88,
+  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v3.apk",
   "apk_estable": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "tamano": 35590982,
-  "sha256": "0b9e941b266303dc4787e7587bc68ba184e40a1745b3c5ad4e965004a1681060",
+  "tamano": 35612466,
+  "sha256": "b56ee7a15de21494f795a1f58a38bd289b00a39b4ba649400072f4600fba3545",
   "fecha": "2026-10-28",
-  "notas": "Apps web con interfaz (HTML/CSS/JS) y puente window.Alya con permisos del telefono. Herramienta crear_app. Calendario incluido en la tienda."
+  "notas": "Hub con rejilla 5x5 y apps movibles, iconos editables, widgets de apps, crear apps con el asistente del IDE, barra rapida del IDE y arreglo de la pantalla en blanco."
 }
