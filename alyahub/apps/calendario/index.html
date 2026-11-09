@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario</title>
+<style>
+  :root{
+    --fondo:#171326; --tarjeta:#211b35; --tarjeta2:#2a2342;
+    --acento:#bd93f9; --acento2:#ff79c6; --texto:#f4f1ff; --tenue:#a79fc4;
+    --linea:rgba(189,147,249,.18);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(120% 80% at 50% 0%, #241c3d 0%, var(--fondo) 55%);
+    color:var(--texto);
+    font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+    padding:16px 14px 28px; max-width:560px; margin:0 auto;
+  }
+  header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  header h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.2px}
+  header .sub{font-size:11px;color:var(--tenue);margin-top:2px}
+  .btn{
+    border:0;border-radius:14px;background:var(--tarjeta);color:var(--texto);
+    padding:10px 14px;font-size:13px;font-weight:700;font-family:inherit;
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn.acento{background:linear-gradient(135deg,var(--acento),var(--acento2));color:#1a1030}
+  .btn.icono{width:38px;height:38px;justify-content:center;padding:0;border-radius:50%}
+  .card{background:var(--tarjeta);border:1px solid var(--linea);border-radius:20px;padding:14px}
+  .mes{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .mes .titulo{font-size:15px;font-weight:800;text-transform:capitalize}
+  .semana,.dias{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .semana div{text-align:center;font-size:10px;color:var(--tenue);font-weight:700;padding-bottom:4px}
+  .dia{
+    aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-size:13px;font-weight:600;
+    background:transparent;border:1px solid transparent;position:relative;cursor:pointer;
+  }
+  .dia.otro{color:#5c5478}
+  .dia.hoy{background:linear-gradient(135deg,var(--acento),var(--acento2));color:#1a1030;font-weight:800}
+  .dia.elegido{border-color:var(--acento)}
+  .dia .punto{position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--acento2)}
+  .lista{margin-top:14px}
+  .lista h2{font-size:12px;color:var(--tenue);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px}
+  .evento{
+    display:flex;align-items:center;gap:10px;background:var(--tarjeta2);
+    border-radius:14px;padding:11px 12px;margin-bottom:8px;border:1px solid var(--linea);
+  }
+  .evento .hora{font-size:12px;font-weight:800;color:var(--acento);min-width:44px}
+  .evento .cuerpo{flex:1;min-width:0}
+  .evento .t{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .evento .d{font-size:11px;color:var(--tenue);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .evento .x{background:transparent;border:0;color:#736a91;font-size:17px;padding:4px 6px;cursor:pointer}
+  .vacio{font-size:12px;color:var(--tenue);text-align:center;padding:18px 0}
+  .fila{display:flex;gap:8px;margin-top:12px}
+  .fila input,.fila textarea{
+    flex:1;min-width:0;background:var(--fondo);border:1px solid var(--linea);border-radius:12px;
+    color:var(--texto);padding:11px 12px;font-size:13px;font-family:inherit;outline:none;
+  }
+  .fila input:focus,.fila textarea:focus{border-color:var(--acento)}
+  .aviso{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);
+    background:var(--acento);color:#1a1030;font-weight:800;font-size:12px;
+    padding:10px 16px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;z-index:9;
+  }
+  .aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div style="flex:1">
+    <h1>📅 Calendario</h1>
+    <div class="sub" id="subtitulo">Cargando…</div>
+  </div>
+  <button class="btn icono" id="hoy" title="Ir a hoy">◎</button>
+</header>
+
+<div class="card">
+  <div class="mes">
+    <button class="btn icono" id="atras">‹</button>
+    <div class="titulo" id="mesTitulo">—</div>
+    <button class="btn icono" id="siguiente">›</button>
+  </div>
+  <div class="semana">
+    <div>L</div><div>M</div><div>X</div><div>J</div><div>V</div><div>S</div><div>D</div>
+  </div>
+  <div class="dias" id="dias"></div>
+</div>
+
+<div class="lista">
+  <h2 id="titulo lista">—</h2>
+  <div id="eventos"></div>
+
+  <div class="fila">
+    <input id="hora" type="time" style="flex:0 0 120px" value="09:00">
+    <input id="titulo" type="text" placeholder="¿Qué hay ese día?" maxlength="60">
+  </div>
+  <div class="fila">
+    <input id="detalle" type="text" placeholder="Detalle (opcional)" maxlength="80">
+    <button class="btn acento" id="agregar">Añadir</button>
+  </div>
+</div>
+
+<div class="aviso" id="aviso"></div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// Puente con Android. Si la app se abre en un navegador normal, Alya no existe:
+// se cae a localStorage para que nunca se quede en blanco.
+// ─────────────────────────────────────────────────────────────────────────────
+const Hay = (typeof window.Alya !== 'undefined');
+let datos = { eventos: [] };
+let fecha = new Date();
+let elegido = hoyISO();
+
+function hoyISO(){
+  const d = new Date();
+  return d.toISOString().slice(0,10);
+}
+
+async function puente(metodo, ...args){
+  try{
+    if(!Hay) return {ok:false, error:'sin puente'};
+    const r = await window.Alya[metodo](...args);
+    return typeof r === 'string' ? JSON.parse(r) : r;
+  }catch(e){ return {ok:false, error:String(e)}; }
+}
+
+async function cargar(){
+  const r = await puente('leer', 'datos.json');
+  if(r && r.ok){
+    try{ datos = JSON.parse(r.contenido) || {eventos:[]}; }catch(e){ datos = {eventos:[]}; }
+  }else{
+    const local = localStorage.getItem('calendario');
+    if(local){ try{ datos = JSON.parse(local); }catch(e){} }
+  }
+  if(!Array.isArray(datos.eventos)) datos.eventos = [];
+}
+
+async function guardar(){
+  const texto = JSON.stringify(datos);
+  localStorage.setItem('calendario', texto);
+  await puente('escribir', 'datos.json', texto);
+}
+
+function avisar(txt){
+  const a = document.getElementById('aviso');
+  a.textContent = txt; a.classList.add('ver');
+  clearTimeout(a._t);
+  a._t = setTimeout(()=>a.classList.remove('ver'), 1800);
+  puente('vibrar', 30);
+}
+
+let infoAlya = null;
+function actualizarSubtitulo(){
+  const sub = document.getElementById('subtitulo');
+  if(!sub) return;
+  const n = datos.eventos.length;
+  sub.textContent = infoAlya
+    ? `Alya ${infoAlya.alya} · Android ${infoAlya.android} · ${n} evento${n === 1 ? '' : 's'}`
+    : `Modo navegador · ${n} evento${n === 1 ? '' : 's'} guardado${n === 1 ? '' : 's'} aquí`;
+}
+
+// ── Pintar el mes ─────────────────────────────────────────────────────────────
+function pintar(){
+  const año = fecha.getFullYear(), mes = fecha.getMonth();
+  actualizarSubtitulo();
+  const nombres = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  document.getElementById('mesTitulo').textContent = nombres[mes] + ' ' + año;
+
+  const primero = new Date(año, mes, 1);
+  const desplazamiento = (primero.getDay() + 6) % 7; // lunes = 0
+  const diasMes = new Date(año, mes + 1, 0).getDate();
+  const contenedor = document.getElementById('dias');
+  contenedor.innerHTML = '';
+
+  for(let i = 0; i < desplazamiento; i++){
+    const d = new Date(año, mes, 1 - (desplazamiento - i));
+    contenedor.appendChild(celda(d, true));
+  }
+  for(let d = 1; d <= diasMes; d++){
+    contenedor.appendChild(celda(new Date(año, mes, d), false));
+  }
+  while(contenedor.children.length % 7 !== 0){
+    const ultimo = contenedor.children.length - desplazamiento - diasMes + 1;
+    contenedor.appendChild(celda(new Date(año, mes + 1, ultimo), true));
+  }
+  pintarDia();
+}
+
+function celda(d, otroMes){
+  const iso = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const el = document.createElement('div');
+  el.className = 'dia' + (otroMes ? ' otro' : '') + (iso === hoyISO() ? ' hoy' : '') + (iso === elegido ? ' elegido' : '');
+  el.textContent = d.getDate();
+  if(datos.eventos.some(e => e.fecha === iso)){
+    const p = document.createElement('span'); p.className = 'punto'; el.appendChild(p);
+  }
+  el.onclick = () => { elegido = iso; pintar(); };
+  return el;
+}
+
+function pintarDia(){
+  const [a, m, d] = elegido.split('-');
+  const fechaLegible = new Date(+a, +m - 1, +d)
+    .toLocaleDateString('es-ES', { weekday:'long', day:'numeric', month:'long' });
+  document.getElementById('titulo lista').textContent = fechaLegible;
+
+  const lista = datos.eventos
+    .filter(e => e.fecha === elegido)
+    .sort((x, y) => (x.hora || '').localeCompare(y.hora || ''));
+
+  const caja = document.getElementById('eventos');
+  caja.innerHTML = '';
+  if(!lista.length){
+    caja.innerHTML = '<div class="vacio">Nada apuntado para este día 🌙</div>';
+    return;
+  }
+  lista.forEach(e => {
+    const fila = document.createElement('div');
+    fila.className = 'evento';
+    fila.innerHTML = `
+      <div class="hora">${e.hora || '—'}</div>
+      <div class="cuerpo">
+        <div class="t"></div>
+        <div class="d"></div>
+      </div>
+      <button class="x" title="Borrar">✕</button>`;
+    fila.querySelector('.t').textContent = e.titulo;
+    fila.querySelector('.d').textContent = e.detalle || '';
+    fila.querySelector('.x').onclick = async () => {
+      datos.eventos = datos.eventos.filter(o => o !== e);
+      await guardar(); pintar(); avisar('Borrado');
+    };
+    caja.appendChild(fila);
+  });
+}
+
+// ── Acciones ──────────────────────────────────────────────────────────────────
+document.getElementById('atras').onclick = () => { fecha.setMonth(fecha.getMonth() - 1); pintar(); };
+document.getElementById('siguiente').onclick = () => { fecha.setMonth(fecha.getMonth() + 1); pintar(); };
+document.getElementById('hoy').onclick = () => { fecha = new Date(); elegido = hoyISO(); pintar(); };
+
+document.getElementById('agregar').onclick = async () => {
+  const titulo = document.getElementById('titulo').value.trim();
+  const hora = document.getElementById('hora').value || '09:00';
+  const detalle = document.getElementById('detalle').value.trim();
+  if(!titulo){ avisar('Falta el título'); return; }
+
+  datos.eventos.push({ fecha: elegido, hora, titulo, detalle });
+  await guardar();
+  document.getElementById('titulo').value = '';
+  document.getElementById('detalle').value = '';
+  pintar();
+  avisar('Añadido a las ' + hora);
+
+  // Un aviso del sistema 5 minutos antes, si Alya tiene permiso de notificaciones.
+  const permiso = await puente('permiso', 'notificaciones');
+  if(permiso && permiso.concedido){ puente('notificar', '📅 ' + titulo, fechaLegibleDe(elegido) + ' a las ' + hora); }
+};
+
+function fechaLegibleDe(iso){
+  const [a, m, d] = iso.split('-');
+  return new Date(+a, +m - 1, +d).toLocaleDateString('es-ES', { day:'numeric', month:'long' });
+}
+
+// ── Arranque ──────────────────────────────────────────────────────────────────
+(async function(){
+  await cargar();
+  pintar();
+  const info = await puente('info');
+  if(info && info.ok) infoAlya = info;
+  actualizarSubtitulo();
+})();
+</script>
+</body>
+</html>
