@@ -1,12 +1,12 @@
 {
   "_comentario": "Estado del canal de actualizaciones. Se actualiza con alyahub/publicar.sh en cada APK nuevo. La app compara versionCode con el suyo.",
-  "canal": 3,
-  "versionName": "3.1.0",
-  "versionCode": 88,
-  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v3.apk",
+  "canal": 4,
+  "versionName": "3.2.0",
+  "versionCode": 89,
+  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v4.apk",
   "apk_estable": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "tamano": 35612466,
-  "sha256": "b56ee7a15de21494f795a1f58a38bd289b00a39b4ba649400072f4600fba3545",
+  "tamano": 35616690,
+  "sha256": "9ef7b9fe3bb5910a50bd55bdf1d307fdccacc3c95fe7d578f3b714d4d935a0b9",
   "fecha": "2026-10-28",
-  "notas": "Hub con rejilla 5x5 y apps movibles, iconos editables, widgets de apps, crear apps con el asistente del IDE, barra rapida del IDE y arreglo de la pantalla en blanco."
+  "notas": "IDE compacto con terminal integrada, scripts del IDE ejecutados con el mismo Linux que la terminal, menos botones y mas espacio."
 }
