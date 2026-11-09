@@ -1,8 +1,25 @@
 {
-  "_comentario": "Catálogo de Alya Store. La app lo lee de aquí (raw.githubusercontent). Para publicar algo nuevo: subir el archivo a alyahub/scripts/ y añadir su ficha a este archivo. No hace falta recompilar la app.",
+  "_comentario": "Catálogo de Alya Store. La app lo lee de aquí (raw.githubusercontent). Para publicar algo: subir el archivo a alyahub/scripts/ o alyahub/apps/ y añadir su ficha. Tipos: script (comando de terminal), webapp (HTML con interfaz, usa window.Alya), tema, apk.",
   "version": 1,
   "actualizado": "2026-10-28",
   "articulos": [
+    {
+      "id": "calendario",
+      "nombre": "Calendario",
+      "descripcion": "Agenda mensual con eventos por día, guardados en el teléfono.",
+      "categoria": "Utilidades",
+      "tipo": "webapp",
+      "emoji": "📅",
+      "version": "1.0",
+      "autor": "Alya",
+      "archivo": "alyahub/apps/calendario/index.html",
+      "comando": "",
+      "permisos": [
+        "almacenamiento",
+        "notificaciones"
+      ],
+      "color": "0xFFBD93F9"
+    },
     {
       "id": "info-sistema",
       "nombre": "Estado del teléfono",
