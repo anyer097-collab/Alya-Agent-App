@@ -1,12 +1,12 @@
 {
   "_comentario": "Estado del canal de actualizaciones. Se actualiza con alyahub/publicar.sh en cada APK nuevo. La app compara versionCode con el suyo.",
-  "canal": 5,
-  "versionName": "3.3.0",
-  "versionCode": 90,
-  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v5.apk",
+  "canal": 6,
+  "versionName": "3.4.0",
+  "versionCode": 91,
+  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v6.apk",
   "apk_estable": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "tamano": 35617898,
-  "sha256": "417ba086554c5f4859e75e11158dde1ae548e64385df1c29760abd8063d7f2bc",
+  "tamano": 35630858,
+  "sha256": "5bafdc8b4aaa114288a214cfcabb6980f33b901c382cb2e8c0c9693f0959c4d5",
   "fecha": "2026-10-28",
-  "notas": "IDE de una sola barra superior, asistente colapsable a franja inferior, snippets contextuales opcionales y selector de tamano del orbe flotante (30-84 dp)."
+  "notas": "IDE con barra divisoria arrastrable al tacto, escritura de codigo en vivo por SSE en el editor, asistente IDE con acceso completo a terminal y mensajes en vivo mientras ejecuta, y pantalla completa inmersiva sin barra de navegacion."
 }
