@@ -1,12 +1,12 @@
 {
-  "_comentario": "Estado del canal de actualizaciones. Se actualiza con alyahub/publicar.sh en cada APK nuevo. La app compara versionCode con el suyo.",
-  "canal": 6,
-  "versionName": "3.4.0",
-  "versionCode": 91,
-  "apk": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v6.apk",
-  "apk_estable": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "tamano": 35630858,
-  "sha256": "5bafdc8b4aaa114288a214cfcabb6980f33b901c382cb2e8c0c9693f0959c4d5",
-  "fecha": "2026-10-28",
-  "notas": "IDE con barra divisoria arrastrable al tacto, escritura de codigo en vivo por SSE en el editor, asistente IDE con acceso completo a terminal y mensajes en vivo mientras ejecuta, y pantalla completa inmersiva sin barra de navegacion."
+  "canal": 7,
+  "versionName": "3.5.0",
+  "versionCode": 92,
+  "apkName": "Alya-Agent-v7.apk",
+  "url": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v7.apk",
+  "permanentUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
+  "sizeBytes": 35636442,
+  "md5": "cff96d139a14767b44e496055ae98416",
+  "sha256": "38dcb667aae3a0a0e807b8f42dd54d1856a888bf478bcef427845a88091124f4",
+  "changelog": "Alya Agent 3.5.0 (vc92 · Canal v7): (1) Colores ANSI reales (256 tonos y TrueColor) + arte de bloques sin huecos en la pestaña Terminal del IDE; (2) Terminal del IDE completa con pestañas de sesión (+ Sesión y cierre con pulsación larga ✕), entrada directa PTY tocando la pantalla negra, zoom con dos dedos, auto-redimensionado real de columnas/filas y barra completa de teclas especiales (Ctrl armable, ESC, TAB, flechas, Ini/Fin, RePág/AvPág, Supr, símbolos, Pegar, Ejecutar script actual); (3) Barra rápida de comando compacta sin texto recortado; (4) Barra del Asistente IDE minimizado apilada debajo sin tapar los controles inferiores; (5) IDE renderizado dentro de la ventana inmersiva principal para mantener ocultos los 3 botones de navegación (☰ ○ ◁)."
 }
