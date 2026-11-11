@@ -1,9 +1,8 @@
 {
-  "canal": 9,
-  "versionName": "3.7.0",
-  "versionCode": 94,
-  "apk": "Alya-Agent-v9.apk",
-  "url": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v9.apk",
-  "urlPermanente": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "notas": "Alya Agent 3.7.0 (v9): Autonomía por turnos sin límite de tiempo, procesos en 2º plano con cesión automática de turno (check_process/wait_process con tiempo elegido por Alya, list_processes, kill_process) y nueva vision_imagen 2.0 con contexto del modelo activo, coordenadas exactas en píxeles y verificación visual post-edición."
+  "canal": 10,
+  "versionName": "3.8.0",
+  "versionCode": 95,
+  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v10.apk",
+  "permanentUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
+  "changelog": "3.8.0 (vc95 · v10): 1) Teclado dinámico (imePadding) en todo el IDE y Terminal en pantalla completa: el input del Asistente del IDE y la barra de teclas (Ctrl, Ctrl+C, ESC, TAB, ↑, ↓, ↵) suben automáticamente encima del teclado. 2) Cierre directo del Orbe Flotante (close_orbe_chat y close_app_section con orbe_chat) deteniendo FloatingBubbleService sin depender de MainActivity. 3) Super-Asistente del IDE con adjunto de imágenes y archivos (📎 AlyaAttachmentSheet), cámara directa (📷), editor con tinta amarilla (🖍️ #FFEA00), vision_imagen 2.0 y captura visual real de Web Live (web_capture_vision)."
 }
