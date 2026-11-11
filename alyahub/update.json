@@ -1,11 +1,11 @@
 {
-  "canal": 12,
-  "versionName": "3.10.0",
-  "versionCode": 97,
-  "apkNombre": "Alya-Agent-v12.apk",
-  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v12.apk",
+  "canal": 13,
+  "versionName": "3.10.1",
+  "versionCode": 98,
+  "apkNombre": "Alya-Agent-v13.apk",
+  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v13.apk",
   "apkUrlPermanente": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "apkBytes": 35729822,
-  "apkSha256": "3fb4244cbcf2970acf1ec6653ee7f83d7d145574b2c5b85a0130993464a4f243",
-  "notas": "Alya Agent 3.10.0 (vc97, canal v12): correccion del bug de reproduccion del audio del mensaje anterior mediante validacion estricta por hash SHA-256 del texto limpio + configuracion de voz y limpieza de archivos heredados sin hash; voz de Alya (Fish Audio streaming / TTS) integrada en todas las superficies (Chat Principal, Orbe Chat, Modo Juego, Asistente Predeterminado de Android, Canvas e IDE); boton independiente de silenciar/desbloquear voz (🔊/🔇) en Canvas e IDE; persistencia de peticiones y estado en vivo al cerrar/minimizar el Orbe Chat y los paneles del Modo Juego."
+  "apkBytes": 35733386,
+  "apkSha256": "d261a5db2ae263cb12399299a92ba18710f968c81f1422613c623f752aefec5e",
+  "notas": "Alya Agent 3.10.1 (vc98, canal v13): filtrado estricto en AlyaSpeechText y MainViewModel para eliminar por completo el bloque [ALYA_STEPS_START]...[ALYA_STEPS_END], parametros JSON, resultados de ejecucion de herramientas (como download_media), rutas locales y recibos tecnicos antes de sintetizar la voz, garantizando que Alya solo pronuncie el mensaje conversacional visible."
 }
