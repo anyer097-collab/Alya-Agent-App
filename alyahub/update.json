@@ -1,8 +1,19 @@
 {
-  "canal": 10,
-  "versionName": "3.8.0",
-  "versionCode": 95,
-  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v10.apk",
-  "permanentUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "changelog": "3.8.0 (vc95 · v10): 1) Teclado dinámico (imePadding) en todo el IDE y Terminal en pantalla completa: el input del Asistente del IDE y la barra de teclas (Ctrl, Ctrl+C, ESC, TAB, ↑, ↓, ↵) suben automáticamente encima del teclado. 2) Cierre directo del Orbe Flotante (close_orbe_chat y close_app_section con orbe_chat) deteniendo FloatingBubbleService sin depender de MainActivity. 3) Super-Asistente del IDE con adjunto de imágenes y archivos (📎 AlyaAttachmentSheet), cámara directa (📷), editor con tinta amarilla (🖍️ #FFEA00), vision_imagen 2.0 y captura visual real de Web Live (web_capture_vision)."
+  "canal": 11,
+  "versionName": "3.9.0",
+  "versionCode": 96,
+  "apkNombre": "Alya-Agent-v11.apk",
+  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v11.apk",
+  "apkUrlPermanente": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
+  "sha256": "aacc0d602e798a258d90a3d88bd7ed18baf0f1af1cca118717083a59c91ab997",
+  "bytes": 35728430,
+  "obligatoria": false,
+  "resumen": "Alya 3.9.0 (v11): Voz Neural en Tiempo Real con Fish Audio (s2.1-pro-free, voz Alya-Kujou), almacenamiento privado exclusivo (files/alya_voices), función «🔊 Escuchar mensaje» en Opciones de Alya y plantilla de voz debajo de la API de IA.",
+  "notas": [
+    "Unión con Fish Audio Neural (s2.1-pro-free + reference_id de Alya-Kujou) con verificador de créditos gratuitos y buscador de voces",
+    "Streaming de voz en tiempo real por frases en paralelo (~0.55s al primer audio)",
+    "Guardado exclusivo en carpeta privada interna de la app (filesDir/alya_voices) inaccesible desde fuera y reproducción instantánea sin gastar créditos",
+    "Nueva opción «🔊 Escuchar mensaje» al dejar presionado cualquier mensaje de Alya (🌸 Opciones de Alya)",
+    "Plantilla de Configuración de Voz ubicada justo debajo de la Configuración de la API de IA en Ajustes"
+  ]
 }
