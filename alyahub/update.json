@@ -1,11 +1,12 @@
 {
-  "canal": 14,
-  "versionName": "3.10.2",
-  "versionCode": 99,
-  "apkNombre": "Alya-Agent-v14.apk",
-  "apkUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v14.apk",
-  "apkUrlPermanente": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
-  "apkBytes": 35732906,
-  "apkSha256": "61137ec73dcb45a6a52f3a76b2d32f155ab24fc1f64d666cb23ca433b73c9346",
-  "notas": "Alya Agent 3.10.2 (vc99, canal v14): restaurada la base estable de 3.10.0 en AlyaSpeechManager y MainViewModel eliminando las expresiones Regex con llaves que provocaban PatternSyntaxException en Android al tocar el boton de sonido (usando solo metodos nativos de String para filtrar [ALYA_STEPS_START] y salidas de herramientas); anadido statusBarsPadding() y margen superior a la cabecera de Alya Art Co-Pilot en CanvasScreen para que no quede tapada por la barra de estado."
+  "canal": 15,
+  "versionName": "3.10.3",
+  "versionCode": 100,
+  "apkFile": "Alya-Agent-v15.apk",
+  "downloadUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent-v15.apk",
+  "permanentUrl": "https://github.com/anyer097-collab/Alya-Agent-App/releases/download/apk-latest/Alya-Agent.apk",
+  "sha256": "746266352877ff1e117802654051414e007a1f517b9cc17cfd9bfbc9c1c3d035",
+  "md5": "f27228855c705c6f00b6cfaa267b2c16",
+  "sizeBytes": 35733214,
+  "changelog": "3.10.3 (vc100, v15): Filtro completo de emojis, selectores Unicode invisibles y normalización de espacios/puntuación antes de enviar al generador de voz (Fish Audio y Android TTS) para eliminar ruidos, suspiros, gemidos y risas raras."
 }
